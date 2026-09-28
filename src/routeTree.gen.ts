@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as PodcastsRouteImport } from './routes/podcasts'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as AuthorsAuthorRouteImport } from './routes/authors.$author'
+import { Route as CategoryCategoryRouteImport } from './routes/category.$category'
+import { Route as StorySlugRouteImport } from './routes/story.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodcastsRoute = PodcastsRouteImport.update({
+  id: '/podcasts',
+  path: '/podcasts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorsAuthorRoute = AuthorsAuthorRouteImport.update({
+  id: '/authors/$author',
+  path: '/authors/$author',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoryCategoryRoute = CategoryCategoryRouteImport.update({
+  id: '/category/$category',
+  path: '/category/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorySlugRoute = StorySlugRouteImport.update({
+  id: '/story/$slug',
+  path: '/story/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/newsletter': typeof NewsletterRoute
+  '/podcasts': typeof PodcastsRoute
+  '/search': typeof SearchRoute
+  '/videos': typeof VideosRoute
+  '/authors/$author': typeof AuthorsAuthorRoute
+  '/category/$category': typeof CategoryCategoryRoute
+  '/story/$slug': typeof StorySlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/newsletter': typeof NewsletterRoute
+  '/podcasts': typeof PodcastsRoute
+  '/search': typeof SearchRoute
+  '/videos': typeof VideosRoute
+  '/authors/$author': typeof AuthorsAuthorRoute
+  '/category/$category': typeof CategoryCategoryRoute
+  '/story/$slug': typeof StorySlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/newsletter': typeof NewsletterRoute
+  '/podcasts': typeof PodcastsRoute
+  '/search': typeof SearchRoute
+  '/videos': typeof VideosRoute
+  '/authors/$author': typeof AuthorsAuthorRoute
+  '/category/$category': typeof CategoryCategoryRoute
+  '/story/$slug': typeof StorySlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/newsletter'
+    | '/podcasts'
+    | '/search'
+    | '/videos'
+    | '/authors/$author'
+    | '/category/$category'
+    | '/story/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/newsletter'
+    | '/podcasts'
+    | '/search'
+    | '/videos'
+    | '/authors/$author'
+    | '/category/$category'
+    | '/story/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/newsletter'
+    | '/podcasts'
+    | '/search'
+    | '/videos'
+    | '/authors/$author'
+    | '/category/$category'
+    | '/story/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  NewsletterRoute: typeof NewsletterRoute
+  PodcastsRoute: typeof PodcastsRoute
+  SearchRoute: typeof SearchRoute
+  VideosRoute: typeof VideosRoute
+  AuthorsAuthorRoute: typeof AuthorsAuthorRoute
+  CategoryCategoryRoute: typeof CategoryCategoryRoute
+  StorySlugRoute: typeof StorySlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podcasts': {
+      id: '/podcasts'
+      path: '/podcasts'
+      fullPath: '/podcasts'
+      preLoaderRoute: typeof PodcastsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/authors/$author': {
+      id: '/authors/$author'
+      path: '/authors/$author'
+      fullPath: '/authors/$author'
+      preLoaderRoute: typeof AuthorsAuthorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/category/$category': {
+      id: '/category/$category'
+      path: '/category/$category'
+      fullPath: '/category/$category'
+      preLoaderRoute: typeof CategoryCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/story/$slug': {
+      id: '/story/$slug'
+      path: '/story/$slug'
+      fullPath: '/story/$slug'
+      preLoaderRoute: typeof StorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  NewsletterRoute: NewsletterRoute,
+  PodcastsRoute: PodcastsRoute,
+  SearchRoute: SearchRoute,
+  VideosRoute: VideosRoute,
+  AuthorsAuthorRoute: AuthorsAuthorRoute,
+  CategoryCategoryRoute: CategoryCategoryRoute,
+  StorySlugRoute: StorySlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

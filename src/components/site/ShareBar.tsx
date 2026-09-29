@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check, Link2, Mail } from "lucide-react";
 
 const targets = [
@@ -17,7 +17,11 @@ const targets = [
 
 export function ShareBar({ title }: { title: string }) {
   const [copied, setCopied] = useState(false);
-  const url = typeof window === "undefined" ? "" : window.location.href;
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   const copy = async () => {
     try {

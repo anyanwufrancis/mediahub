@@ -3,11 +3,11 @@ import { useState } from "react";
 import { StoryCard } from "@/components/site/StoryCard";
 import { searchStories, suggestionsFor, type ContentType } from "@/data/content";
 
-type SearchParams = { q?: string };
+type SearchParams = { q: string };
 
 export const Route = createFileRoute("/search")({
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
-    q: typeof search.q === "string" ? search.q : undefined,
+    q: typeof search["q"] === "string" ? (search["q"] as string) : "",
   }),
   head: () => ({
     meta: [

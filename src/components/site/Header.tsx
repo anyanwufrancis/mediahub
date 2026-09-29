@@ -22,7 +22,7 @@ export function Header() {
   return (
     <header className="relative z-40 mx-auto max-w-7xl px-4 pt-4 sm:px-6 sm:pt-6">
       <nav className="glass-panel sticky top-4 rounded-2xl px-4 py-3 sm:px-5">
-        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex min-w-0 items-center gap-2">
             <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand to-brand-soft font-display text-lg font-bold text-primary-foreground">
               M
